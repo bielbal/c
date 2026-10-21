@@ -41,7 +41,7 @@ router.get('/callback', async (req, res) => {
     req.session.user = {
       ...userRes.data,
       access_token,
-      guilds: guildsRes.data.filter(g => (parseInt(g.permissions) & 0x20) === 0x20),
+      guilds: guildsRes.data,
     };
 
     res.redirect('/dashboard');
